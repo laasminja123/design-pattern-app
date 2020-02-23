@@ -7,6 +7,8 @@ import com.design.pattern.app.factory.impl.SushiRollRigaFactory;
 import com.design.pattern.app.menu.SushiRollMenuComponent;
 import com.design.pattern.app.menu.impl.SushiRollMenu;
 import com.design.pattern.app.product.SushiRoll;
+import com.design.pattern.app.service.facade.controller.OrderFulfillmentController;
+import com.design.pattern.app.service.facade.impl.OrderServiceFacadeImpl;
 
 @SpringBootApplication
 public class DesignPatternApplication {
@@ -41,6 +43,24 @@ public class DesignPatternApplication {
         System.out.println();
         System.out.println("Available sushi rolls in " + fullMenu.getName());
         fullMenu.returnAllSushiRolls();
+
+        System.out.println();
+        OrderFulfillmentController controllerSpicyTuna = new OrderFulfillmentController();
+        controllerSpicyTuna.facade = new OrderServiceFacadeImpl();
+        controllerSpicyTuna.orderProduct(spicyTunaRoll);
+        System.out.println("Order fulfilled: " + controllerSpicyTuna.orderFulfilled);
+
+        System.out.println();
+        OrderFulfillmentController controllerVegetarian = new OrderFulfillmentController();
+        controllerVegetarian.facade = new OrderServiceFacadeImpl();
+        controllerVegetarian.orderProduct(vegetarianRoll);
+        System.out.println("Order fulfilled: " + controllerVegetarian.orderFulfilled);
+
+        System.out.println();
+        OrderFulfillmentController controllerCalifornia = new OrderFulfillmentController();
+        controllerCalifornia.facade = new OrderServiceFacadeImpl();
+        controllerCalifornia.orderProduct(californiaRoll);
+        System.out.println("Order fulfilled: " + controllerCalifornia.orderFulfilled);
     }
 
 }
