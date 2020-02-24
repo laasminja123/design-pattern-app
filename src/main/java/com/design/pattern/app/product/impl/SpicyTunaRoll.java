@@ -4,8 +4,8 @@ import com.design.pattern.app.product.SushiRoll;
 
 public class SpicyTunaRoll extends SushiRoll {
 
-    public SpicyTunaRoll(String name, double price) {
-        super(name, price);
+    public SpicyTunaRoll(String name, double price, boolean available) {
+        super(name, price, available);
     }
 
     @Override

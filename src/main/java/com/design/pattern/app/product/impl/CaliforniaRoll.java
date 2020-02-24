@@ -4,8 +4,8 @@ import com.design.pattern.app.product.SushiRoll;
 
 public class CaliforniaRoll extends SushiRoll{
 
-    public CaliforniaRoll(String name, double price) {
-        super(name, price);
+    public CaliforniaRoll(String name, double price, boolean available) {
+        super(name, price, available);
     }
 
     @Override
